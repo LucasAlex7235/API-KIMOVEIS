@@ -1,44 +1,35 @@
-// import { hashSync } from "bcryptjs";
-// import {
-//   Entity,
-//   PrimaryGeneratedColumn,
-//   Column,
-//   CreateDateColumn,
-//   BeforeInsert,
-//   OneToOne,
-// } from "typeorm";
+import { hashSync } from "bcryptjs";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  BeforeInsert,
+  OneToOne,
+  ManyToOne,
+} from "typeorm";
+import { Properties } from "./properties.entity";
+import { User } from "./user.entity";
 
-// @Entity("shedules_users_properties")
-// class ShedulesUsersProperties {
-//   @PrimaryGeneratedColumn("uuid")
-//   id: string;
+@Entity("shedules_users_properties")
+class ShedulesUsersProperties {
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-//   @Column({ type: "date" })
-//   date: string;
+  @Column({ type: "date" })
+  date: string;
 
-//   @Column({ type: "time"})
-//   hour: string;
+  @Column({ type: "time" })
+  hour: string;
 
-//   @OneToOne()
-// //   @Column({ length: 120 })
-// //   password: string;
+  @ManyToOne(
+    () => Properties,
+    (properties) => properties.shedules_users_properties
+  )
+  property: Properties[];
 
-// //   @Column()
-// //   isAdm: boolean;
+  @ManyToOne(() => User, (user) => user.shedules_users_properties)
+  user: User[];
+}
 
-// //   @Column({ default: true, type: "boolean" })
-// //   isActive: boolean;
-
-// //   @CreateDateColumn()
-// //   createdAt: Date;
-
-// //   @CreateDateColumn()
-// //   updatedAt: Date;
-
-// //   @BeforeInsert()
-// //   hashPassword() {
-// //     this.password = hashSync(this.password, 10);
-// //   }
-// }
-
-// export { ShedulesUsersProperties };
+export { ShedulesUsersProperties };

@@ -5,7 +5,9 @@ import {
   Column,
   CreateDateColumn,
   BeforeInsert,
+  OneToMany,
 } from "typeorm";
+import { ShedulesUsersProperties } from "./schedulesProperties.entity";
 
 @Entity("users")
 class User {
@@ -37,6 +39,12 @@ class User {
   hashPassword() {
     this.password = hashSync(this.password, 10);
   }
+
+  @OneToMany(
+    () => ShedulesUsersProperties,
+    (shedulesUsersProperties) => shedulesUsersProperties.user
+  )
+  shedules_users_properties: ShedulesUsersProperties;
 }
 
 export { User };

@@ -6,9 +6,11 @@ import {
   OneToOne,
   JoinColumn,
   ManyToOne,
+  OneToMany,
 } from "typeorm";
 import { Addresses } from "./addresses.entity";
 import { Categories } from "./categories.entity";
+import { ShedulesUsersProperties } from "./schedulesProperties.entity";
 
 @Entity("properties")
 class Properties {
@@ -33,6 +35,12 @@ class Properties {
 
   @ManyToOne(() => Categories, (categories) => categories.properties)
   categories: Categories[];
+
+  @OneToMany(
+    () => ShedulesUsersProperties,
+    (shedulesUsersProperties) => shedulesUsersProperties.property
+  )
+  shedules_users_properties: ShedulesUsersProperties;
 }
 
 export { Properties };
