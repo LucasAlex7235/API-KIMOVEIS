@@ -1,13 +1,4 @@
-import { hashSync } from "bcryptjs";
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  BeforeInsert,
-  OneToOne,
-  ManyToOne,
-} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Properties } from "./properties.entity";
 import { User } from "./user.entity";
 
