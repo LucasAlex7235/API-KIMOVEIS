@@ -1,11 +1,11 @@
-import AppDataSource from "../data-source";
-import { User } from "../entities/user.entity";
-import { AppError } from "../errors/errors";
+import AppDataSource from "../../data-source";
+import { User } from "../../entities/user.entity";
+import { AppError } from "../../errors/errors";
 import {
   IUser,
   IUserBody,
   IUserDecode,
-} from "../interfaces/users/user.interface";
+} from "../../interfaces/users/user.interface";
 
 const updateUserService = async (
   idParams: string,

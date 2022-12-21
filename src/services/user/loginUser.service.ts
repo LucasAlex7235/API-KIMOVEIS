@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { IUserDecode } from "../interfaces/users/user.interface";
+import { IUserDecode } from "../../interfaces/users/user.interface";
 
 const loginUserService = async (user: IUserDecode): Promise<object> => {
   const token = jwt.sign(

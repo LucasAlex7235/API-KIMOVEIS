@@ -17,10 +17,10 @@ class ShedulesUsersProperties {
     () => Properties,
     (properties) => properties.shedules_users_properties
   )
-  property: Properties[];
+  property: Properties;
 
   @ManyToOne(() => User, (user) => user.shedules_users_properties)
-  user: User[];
+  user: User;
 }
 
 export { ShedulesUsersProperties };

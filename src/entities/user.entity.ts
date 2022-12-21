@@ -44,7 +44,7 @@ class User {
     () => ShedulesUsersProperties,
     (shedulesUsersProperties) => shedulesUsersProperties.user
   )
-  shedules_users_properties: ShedulesUsersProperties;
+  shedules_users_properties: ShedulesUsersProperties[];
 }
 
 export { User };

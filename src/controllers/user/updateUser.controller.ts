@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { IUserBody, IUserDecode } from "../interfaces/users/user.interface";
-import updateUserService from "../services/updateUser.service";
+import { IUserBody, IUserDecode } from "../../interfaces/users/user.interface";
+import updateUserService from "../../services/user/updateUser.service";
 
 const updateUserController = async (
   req: Request,
