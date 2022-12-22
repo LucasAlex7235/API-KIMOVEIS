@@ -12,6 +12,14 @@ import updateUserController from "../controllers/user/updateUser.controller";
 import { updateUserShape } from "../schema/user/updateUser.shema";
 import { createSchedulesSchema } from "../schema/schedules/createSchedules.schema";
 import createSchedulesController from "../controllers/schedules/createSchedules.controller";
+import listSchedulesController from "../controllers/schedules/listSchedules.controller";
+import createCategoriesController from "../controllers/categories/createCategories.controller";
+import { createCategoriesSchema } from "../schema/categories/createCategories.schema";
+import listCategoriesController from "../controllers/categories/listCategories.controller";
+import listCategoriesByIdController from "../controllers/categories/listCategoriesById.contreller";
+import { createPropertiesSchema } from "../schema/properties/createProperties.schema";
+import createPropertiesController from "../controllers/properties/createProperties.controller";
+import listPropertiesController from "../controllers/properties/listProperties.controller";
 
 export {
   createUserController,
@@ -28,4 +36,12 @@ export {
   updateUserShape,
   createSchedulesSchema,
   createSchedulesController,
+  listSchedulesController,
+  createCategoriesController,
+  createCategoriesSchema,
+  listCategoriesController,
+  listCategoriesByIdController,
+  createPropertiesSchema,
+  createPropertiesController,
+  listPropertiesController,
 };

@@ -10,33 +10,50 @@ const createSchedulesService = async (
   userId: string
 ) => {
   const { date, hour, propertyId } = scheduleRequest;
+
+  const validHour = +hour.split(":")[0] <= 24 && +hour.split(":")[0] >= 0;
+  const availableOpeningHours =
+    (+hour.split(":")[0] >= 18 && +hour.split(":")[1] > 0) ||
+    +hour.split(":")[0] > 18 ||
+    +hour.split(":")[0] < 8;
+
+  if (!validHour) {
+    throw new AppError(`Invalid schedule ${hour}`, 404);
+  }
+
   const schedulesRepo = AppDataSource.getRepository(ShedulesUsersProperties);
   const usersRepo = AppDataSource.getRepository(User);
-
   const propertiesRepo = AppDataSource.getRepository(Properties);
+
+  // const workingDays = await AppDataSource.query(
+  //   `SELECT EXTRACT (DOW from DATE ($1))`,
+  //   [date]
+  // ).then((res) => res[0].extract);
+
   const propertiesQueryBuilder =
     propertiesRepo.createQueryBuilder("properties");
+
+  const usersQueryBuilder = usersRepo.createQueryBuilder("users");
+
+  const schedulesHours: any = await propertiesQueryBuilder
+    .innerJoinAndSelect(
+      "properties.shedules_users_properties",
+      "propertiesSchedules"
+    )
+    .where("properties.id = :id", { id: propertyId })
+    .andWhere("propertiesSchedules.hour = :hourUser", { hourUser: hour })
+    .getOne();
+
+  const userHoursProperties = await usersQueryBuilder
+    .innerJoinAndSelect("users.shedules_users_properties", "userSchedules")
+    .where("users.id = :userId", { userId: userId })
+    .andWhere("userSchedules.hour = :hour", { hour: hour })
+    .getOne();
+  // const test = propertiesRepo.create(scheduleRequest);
 
   const propertiesExist = await propertiesRepo.exist({
     where: { id: propertyId },
   });
-
-  const schedulesHours: any = await propertiesQueryBuilder
-    .leftJoinAndSelect(
-      "properties.shedules_users_properties",
-      "shedules_users_properties",
-      "shedules_users_properties.property = properties.id"
-    )
-    .where("properties.id = :id", { id: propertyId })
-    .getMany();
-
-  const properties = schedulesHours.filter((el) => el.id === propertyId);
-
-  const hoursExist = properties.some((el) =>
-    el.shedules_users_properties.some(
-      (elemHour) => elemHour.hour.split(":").slice(0, -1).join(":") === hour
-    )
-  );
 
   const user = await usersRepo.findOne({
     where: { id: userId },
@@ -48,16 +65,33 @@ const createSchedulesService = async (
 
   if (!propertiesExist) {
     throw new AppError(`Property with id ${propertyId} does not exist`, 404);
-  } else if (hoursExist) {
-    throw new AppError(`This time already exists in property ${hour}`, 404);
+  }
+  // else if (workingDays == 6 || workingDays == 0) {
+  //   throw new AppError(
+  //     `Date unavailable. Service only from Monday to Friday`,
+  //     404
+  //   );
+  // }
+  else if (availableOpeningHours) {
+    throw new AppError(
+      `Unavailable time. Opening hours are from 08:00 to 18:00`,
+      400
+    );
+  } else if (schedulesHours) {
+    throw new AppError(`This time already exists in property ${hour}`, 409);
+  } else if (userHoursProperties) {
+    throw new AppError(
+      "User already has this schedule in another property",
+      409
+    );
   } else {
-    await schedulesRepo.save({
+    const response = schedulesRepo.create({
       date,
       hour,
       property: schedule,
-      user: user,
     });
-    return schedulesHours[0];
+    await schedulesRepo.save({ ...response, user: user });
+    return { message: "Appointment successfully scheduled" };
   }
 };
 

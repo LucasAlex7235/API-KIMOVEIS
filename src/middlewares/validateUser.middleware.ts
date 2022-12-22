@@ -17,6 +17,8 @@ const validateSchemaMiddleware =
       throw new AppError(validated.errors, 400);
     }
 
+    req.body = validated;
+
     return next();
   };
 

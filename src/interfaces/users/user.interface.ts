@@ -18,6 +18,7 @@ export interface IUserDecode {
   id?: string;
   sub?: string;
   name: string;
+  isActive?: boolean;
 }
 
 export interface IUserBody {

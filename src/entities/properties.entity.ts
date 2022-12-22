@@ -17,8 +17,11 @@ class Properties {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column({ default: false })
   sold: boolean;
+
+  @Column()
+  value: number;
 
   @Column()
   size: number;
@@ -34,7 +37,7 @@ class Properties {
   address: Addresses;
 
   @ManyToOne(() => Categories, (categories) => categories.properties)
-  categories: Categories[];
+  category: Categories;
 
   @OneToMany(
     () => ShedulesUsersProperties,

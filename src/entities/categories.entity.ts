@@ -9,8 +9,8 @@ class Categories {
   @Column()
   name: string;
 
-  @OneToMany(() => Properties, (properties) => properties.categories)
-  properties: Properties;
+  @OneToMany(() => Properties, (properties) => properties.category)
+  properties: Properties[];
 }
 
 export { Categories };
