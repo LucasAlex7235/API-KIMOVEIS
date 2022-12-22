@@ -1,8 +1,7 @@
 import AppDataSource from "../../data-source";
 import { Properties } from "../../entities/properties.entity";
-import { IPropertyRequest } from "../../interfaces/properties";
 
-const listPropertiesService = async () => {
+const listPropertiesService = async (): Promise<Properties[]> => {
   const propertiesRepo = AppDataSource.getRepository(Properties);
   const propertiesQueryBuilder =
     propertiesRepo.createQueryBuilder("properties");

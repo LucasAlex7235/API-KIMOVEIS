@@ -3,7 +3,9 @@ import { Properties } from "../../entities/properties.entity";
 import { ShedulesUsersProperties } from "../../entities/schedulesProperties.entity";
 import { AppError } from "../../errors/errors";
 
-const listSchedulesService = async (idParams: string) => {
+const listSchedulesService = async (
+  idParams: string
+): Promise<{ schedules: ShedulesUsersProperties[] }> => {
   const propertiesRepo = AppDataSource.getRepository(Properties);
 
   const propertiesQueryBuilder =

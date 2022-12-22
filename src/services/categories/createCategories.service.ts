@@ -3,7 +3,9 @@ import { Categories } from "../../entities/categories.entity";
 import { AppError } from "../../errors/errors";
 import { ICategoryRequest } from "../../interfaces/categories";
 
-const createCategoriesService = async (categoryRequest: ICategoryRequest) => {
+const createCategoriesService = async (
+  categoryRequest: ICategoryRequest
+): Promise<ICategoryRequest> => {
   const { name } = categoryRequest;
   const categotiesRepo = AppDataSource.getRepository(Categories);
   const categoriesQueryBuilder =

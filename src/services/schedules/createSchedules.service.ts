@@ -8,7 +8,7 @@ import { User } from "../../entities/user.entity";
 const createSchedulesService = async (
   scheduleRequest: IScheduleRequest,
   userId: string
-) => {
+): Promise<{ message: string }> => {
   const { date, hour, propertyId } = scheduleRequest;
 
   const validHour = +hour.split(":")[0] <= 24 && +hour.split(":")[0] >= 0;

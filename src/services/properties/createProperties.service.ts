@@ -5,7 +5,9 @@ import { Properties } from "../../entities/properties.entity";
 import { AppError } from "../../errors/errors";
 import { IPropertyRequest } from "../../interfaces/properties";
 
-const createPropertiesService = async (propertyRequest: IPropertyRequest) => {
+const createPropertiesService = async (
+  propertyRequest: IPropertyRequest
+): Promise<Properties> => {
   const { district, city, state, zipCode, number } = propertyRequest.address;
   const { address, categoryId, size, value } = propertyRequest;
   const addressesRepo = AppDataSource.getRepository(Addresses);
