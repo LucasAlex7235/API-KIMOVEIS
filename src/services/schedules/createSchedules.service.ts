@@ -25,10 +25,7 @@ const createSchedulesService = async (
   const usersRepo = AppDataSource.getRepository(User);
   const propertiesRepo = AppDataSource.getRepository(Properties);
 
-  // const workingDays = await AppDataSource.query(
-  //   `SELECT EXTRACT (DOW from DATE ($1))`,
-  //   [date]
-  // ).then((res) => res[0].extract);
+  const workingDays = new Date(date).getDay();
 
   const propertiesQueryBuilder =
     propertiesRepo.createQueryBuilder("properties");
@@ -49,7 +46,6 @@ const createSchedulesService = async (
     .where("users.id = :userId", { userId: userId })
     .andWhere("userSchedules.hour = :hour", { hour: hour })
     .getOne();
-  // const test = propertiesRepo.create(scheduleRequest);
 
   const propertiesExist = await propertiesRepo.exist({
     where: { id: propertyId },
@@ -65,14 +61,12 @@ const createSchedulesService = async (
 
   if (!propertiesExist) {
     throw new AppError(`Property with id ${propertyId} does not exist`, 404);
-  }
-  // else if (workingDays == 6 || workingDays == 0) {
-  //   throw new AppError(
-  //     `Date unavailable. Service only from Monday to Friday`,
-  //     404
-  //   );
-  // }
-  else if (availableOpeningHours) {
+  } else if (workingDays == 6 || workingDays == 0) {
+    throw new AppError(
+      `Date unavailable. Service only from Monday to Friday`,
+      400
+    );
+  } else if (availableOpeningHours) {
     throw new AppError(
       `Unavailable time. Opening hours are from 08:00 to 18:00`,
       400
