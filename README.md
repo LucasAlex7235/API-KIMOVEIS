@@ -59,7 +59,7 @@ Para inciar este projeto, é necessário instalar as dependências, que serão u
 ````
 
 
-**Rotas que necessitam de autenticação:**
+## Rotas que necessitam de autenticação:
 
 ### GET: /users
 
@@ -96,9 +96,9 @@ Para inciar este projeto, é necessário instalar as dependências, que serão u
 	}
 ]
 ````
+## Rota necessita que o usuario esteja logado como Adm
 
 ### PATCH: /users/:id
-**Rota necessita que o usuario esteja logado como Adm**
 
 **Request**
 
