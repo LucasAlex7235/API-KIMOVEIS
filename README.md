@@ -131,8 +131,13 @@ Para inciar este projeto, é necessário instalar as dependências, que serão u
 **Response - 204 - No Content**
 
 
+
 ## Categories
 **Rotas de criação de categorias:**
+
+## Rota necessita que o usuario esteja logado como Adm
+
+### POST: /categories 
 
 **Request**
 ````
@@ -149,3 +154,28 @@ Para inciar este projeto, é necessário instalar as dependências, que serão u
     "id": "e5f1c308-0d74-4e2d-977b-83075cc4adb2"
 }
 ````
+
+### GET: /categories
+
+**Response - 200 - Ok**
+
+````
+[
+	{
+		"id": "1a758f52-2080-46fd-a16d-558198856308",
+		"name": "Apartamento"
+	},
+	{
+		"id": "d1b38a29-0d73-48c7-8700-10614dc62b01",
+		"name": "Casa"
+	},
+	{
+		"id": "27b51517-0deb-4ca0-ae0a-b4dbd3d67488",
+		"name": "Terreno"
+	}
+]
+````
+
+
+
+
