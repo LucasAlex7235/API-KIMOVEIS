@@ -207,17 +207,17 @@ Para inciar este projeto, é necessário instalar as dependências, que serão u
      "value": 1000000,
      "size": 350,
      "address": {
-	  "id": "a310dbee-55fc-4daf-9541-3ecb1a9bcbe2",
-	  "district": "Rua Heleodo Pires de camargo",
-          "zipCode": "18150000",
-	  "number": "67",
-	  "city": "Piedade",
-	  "state": "SP"
-	},
+	 "id": "a310dbee-55fc-4daf-9541-3ecb1a9bcbe2",
+	 "district": "Rua Heleodo Pires de camargo",
+         "zipCode": "18150000",
+	 "number": "67",
+	 "city": "Piedade",
+	 "state": "SP"
+     },
      "category": {
-	  "id": "27b51517-0deb-4ca0-ae0a-b4dbd3d67488",
-	  "name": "Terreno"
-	},
+	 "id": "27b51517-0deb-4ca0-ae0a-b4dbd3d67488",
+	 "name": "Terreno"
+     },
      "id": "f7b71adc-4ee2-4a20-a861-ae7788b06d78",
      "sold": false,
      "createdAt": "2022-12-22T17:36:17.065Z",
