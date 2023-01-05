@@ -125,3 +125,27 @@ Para inciar este projeto, é necessário instalar as dependências, que serão u
 	}
 ]
 ````
+
+### DELETE: /users/:id
+
+**Response - 204 - No Content**
+
+
+## Categories
+**Rotas de criação de categorias:**
+
+**Request**
+````
+{
+    "name": "Terrenos"
+}
+````
+
+**Response - 201 - Created**
+
+````
+{
+    "name": "Terrenos",
+    "id": "e5f1c308-0d74-4e2d-977b-83075cc4adb2"
+}
+````
