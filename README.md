@@ -230,6 +230,8 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 
 ## Rota necessita que o usuario esteja logado como Adm
 ** Obs: Agendamento de horários somente em horário comercial, de segunda à sexta das 8h às 18h **
+** Obs: O usuario logado, pode agendar somente uma visita por horário**
+** Obs: A propriedade pode receber somente uma visita por horario**
 
 ### POST: /schedules
 
@@ -242,3 +244,12 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
    "propertyId": "f7b71adc-4ee2-4a20-a861-ae7788b06d78"
 }
 ````
+
+**Response - 201 - Created**
+
+````
+{
+	"message": "Appointment successfully scheduled"
+}
+````
+
