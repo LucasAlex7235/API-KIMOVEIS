@@ -352,3 +352,14 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 	]
 }
 ````
+
+
+
+## Testes realizado ultilizando Jest:
+
+![image](https://user-images.githubusercontent.com/101838666/210904099-19c5e9c5-386c-4a54-811f-929aef2ced37.png)
+![image](https://user-images.githubusercontent.com/101838666/210904125-66d16e21-67f3-4a5a-af30-759db5497b84.png)
+
+
+
+
