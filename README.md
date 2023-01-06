@@ -313,9 +313,9 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 
 
 ### GET: /schedules/:id (id da propriedade)
+## Rota necessita que o usuario esteja logado como Adm
 
 **Response - 200 - Ok**
-## Rota necessita que o usuario esteja logado como Adm
 
 ````
 {
