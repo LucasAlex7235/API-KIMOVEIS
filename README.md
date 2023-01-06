@@ -225,5 +225,20 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 }
 ````
 
+## Horários
+**Rotas de agendamento para visita de uma propiedade:**
 
+## Rota necessita que o usuario esteja logado como Adm
+** Obs: Agendamento de horários somente em horário comercial, de segunda à sexta das 8h às 18h **
 
+### POST: /schedules
+
+**Request**
+
+````
+{
+   "date": "04/25/1998",
+   "time": "12:00",
+   "propertyId": "f7b71adc-4ee2-4a20-a861-ae7788b06d78"
+}
+````
