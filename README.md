@@ -225,13 +225,71 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 }
 ````
 
+### GET: /properties
+
+**Response - 200 - Ok**
+
+````
+[
+	{
+		"id": "6da96b52-7fda-49fa-b477-47939420a501",
+		"sold": false,
+		"value": 1000000,
+		"size": 350,
+		"createdAt": "2022-12-22T10:36:30.600Z",
+		"updatedAt": "2022-12-22T10:36:30.600Z",
+		"address": {
+			"id": "0defb39a-a02d-463d-8039-65a4542b9d3e",
+			"district": "Rodovia Bunjiro Nakao",
+			"zipCode": "18170000",
+			"number": "42",
+			"city": "Ibiúna",
+			"state": "SP"
+		}
+	},
+	{
+		"id": "6498ac91-2261-45c1-85fa-ce86d2883c54",
+		"sold": false,
+		"value": 1000000,
+		"size": 350,
+		"createdAt": "2022-12-22T10:36:34.932Z",
+		"updatedAt": "2022-12-22T10:36:34.932Z",
+		"address": {
+			"id": "785b7a31-5209-4ad5-9c45-ac60bb71d7b9",
+			"district": "Rua Heleodo Pires de camargo",
+			"zipCode": "18150000",
+			"number": "67",
+			"city": "Piedade",
+			"state": "SP"
+		}
+	},
+	{
+		"id": "f7b71adc-4ee2-4a20-a861-ae7788b06d78",
+		"sold": false,
+		"value": 1000000,
+		"size": 350,
+		"createdAt": "2022-12-22T17:36:17.065Z",
+		"updatedAt": "2022-12-22T17:36:17.065Z",
+		"address": {
+			"id": "a310dbee-55fc-4daf-9541-3ecb1a9bcbe2",
+			"district": "Rua Heleodo Pires de camargo10",
+			"zipCode": "18150000",
+			"number": "67",
+			"city": "Piedade",
+			"state": "SP"
+		}
+	}
+]
+````
+
+
 ## Horários
 **Rotas de agendamento para visita de uma propiedade:**
 
 ## Rota necessita que o usuario esteja logado como Adm
-** Obs: Agendamento de horários somente em horário comercial, de segunda à sexta das 8h às 18h **
-** Obs: O usuario logado, pode agendar somente uma visita por horário**
-** Obs: A propriedade pode receber somente uma visita por horario**
+**Obs: Agendamento de horários somente em horário comercial, de segunda à sexta das 8h às 18h**
+**Obs: O usuario logado, pode agendar somente uma visita por horário**
+**Obs: A propriedade pode receber somente uma visita por horario**
 
 ### POST: /schedules
 
