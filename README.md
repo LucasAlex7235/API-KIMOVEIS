@@ -355,7 +355,7 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 
 
 
-## Testes realizado ultilizando Jest:
+## Testes realizado ultilizando Jest <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="20" width="32" alt="jest icon"  />:
 
 ![image](https://user-images.githubusercontent.com/101838666/210904099-19c5e9c5-386c-4a54-811f-929aef2ced37.png)
 ![image](https://user-images.githubusercontent.com/101838666/210904125-66d16e21-67f3-4a5a-af30-759db5497b84.png)
