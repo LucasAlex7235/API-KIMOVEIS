@@ -98,7 +98,7 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 ````
 ## Rota necessita que o usuario esteja logado como Adm
 
-### PATCH: /users/:id
+### PATCH: /users/:id (id do usuario)
 
 **Request**
 
@@ -126,7 +126,7 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 ]
 ````
 
-### DELETE: /users/:id
+### DELETE: /users/:id (id do usuario)
 
 **Response - 204 - No Content**
 
@@ -313,7 +313,6 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 
 
 ### GET: /schedules/:id (id da propriedade)
-## Rota necessita que o usuario esteja logado como Adm
 
 **Response - 200 - Ok**
 
