@@ -287,9 +287,9 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 **Rotas de agendamento para visita de uma propiedade:**
 
 ## Rota necessita que o usuario esteja logado como Adm
-**Obs: Agendamento de horários somente em horário comercial, de segunda à sexta das 8h às 18h**
-**Obs: O usuario logado, pode agendar somente uma visita por horário**
-**Obs: A propriedade pode receber somente uma visita por horario**
+**Obs: Agendamento de horários somente em horário comercial, de segunda à sexta das 8h às 18h.**
+**O usuario logado, pode agendar somente uma visita por horário.**
+**A propriedade pode receber somente uma visita por horario**
 
 ### POST: /schedules
 
@@ -311,3 +311,45 @@ Nessa **API** foi desenvolvido um serviço de back-end responsável por gerencia
 }
 ````
 
+
+### GET: /schedules/:id (id da propriedade)
+
+**Response - 200 - Ok**
+## Rota necessita que o usuario esteja logado como Adm
+
+````
+{
+	"schedules": [
+		{
+			"id": "5f0b4376-a9de-42bf-9e0d-a1cd5919c137",
+			"date": "2022-08-16",
+			"hour": "12:55:00",
+			"user": {
+				"id": "38aa9481-0527-4985-b389-42448fb581e3",
+				"name": "Joana",
+				"email": "joana@kenzie.com",
+				"password": "$2a$10$JA21n4sMJ6U4hq6P5zFRzOyd14ilCFZYdrrKzMRoVXXOTlKrMxxiG",
+				"isAdm": false,
+				"isActive": true,
+				"createdAt": "2022-12-19T18:00:58.626Z",
+				"updatedAt": "2022-12-19T18:00:58.626Z"
+			}
+		},
+		{
+			"id": "8a1a0070-7955-484e-b042-c3b51ceb767f",
+			"date": "2022-12-27",
+			"hour": "12:10:00",
+			"user": {
+				"id": "95de129b-fc96-4c70-b57e-49dc1cb9ffb6",
+				"name": "Jorge",
+				"email": "cauan@kenzie.com",
+				"password": "$2a$10$SYR.1C6aSWUSFQFejnDeaOuT2BXETD7S6O7n.nX3jL4JkOEvr3FDu",
+				"isAdm": false,
+				"isActive": true,
+				"createdAt": "2023-01-05T01:40:00.749Z",
+				"updatedAt": "2023-01-05T01:40:00.749Z"
+			}
+		}
+	]
+}
+````
